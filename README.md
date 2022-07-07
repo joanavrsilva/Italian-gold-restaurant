@@ -30,6 +30,41 @@ The website link can be found [here]()
 
 ### Wireframes
 
+- Homepage
+
+![Home](https://user-images.githubusercontent.com/83631970/177781676-87794396-c849-4c97-93b3-b04b4eee4350.png)
+
+
+- About Us page
+
+![About us](https://user-images.githubusercontent.com/83631970/177781700-aad76e71-7753-4166-a509-a8c54a32a638.png)
+
+
+- Menu page
+
+![Menu](https://user-images.githubusercontent.com/83631970/177781730-f8da800c-61b6-4106-beab-af9c5205178b.png)
+
+
+- Reservations page
+
+![Reservations](https://user-images.githubusercontent.com/83631970/177781739-32f60d76-e40e-4f64-a871-39fa45bbdc22.png)
+
+
+- Location/Contact page
+
+![Location_Contact](https://user-images.githubusercontent.com/83631970/177781751-5b1c772a-3d65-47f6-9db2-6c8012ffb7ed.png)
+
+
+- Account Registration page
+
+![Account Registration](https://user-images.githubusercontent.com/83631970/177781763-a018c4ea-5d7b-4322-95ff-69f84130e092.png)
+
+
+- Account Sign In page
+
+![Account Sign In](https://user-images.githubusercontent.com/83631970/177781789-aa1d66af-3d55-4497-89d2-54d3d386068e.png)
+
+
 ## Features 
 
 ### Django
