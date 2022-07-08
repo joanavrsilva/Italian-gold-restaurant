@@ -3,6 +3,14 @@
 
 The website link can be found [here]()
 
+## Agile Methodology
+
+![agile screenshot p4](https://user-images.githubusercontent.com/83631970/178019011-c40d504f-8142-482c-b27a-a5bd9f4c9698.png)
+
+- Tasks example
+![agile screenshot example tasks p4](https://user-images.githubusercontent.com/83631970/178018849-ee5265c1-763e-4124-8180-452ac39bb133.png)
+
+
 ## User stories
 - As a customer:
 
