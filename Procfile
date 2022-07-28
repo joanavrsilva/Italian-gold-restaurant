@@ -1,0 +1,1 @@
+web: gunicorn italian_restaurant.wsgi
