@@ -13,3 +13,17 @@ class Table(models.Model):
     seats = models.IntegerField()
     min_people = models.IntegerField()
     max_people = models.IntegerField()
+
+class Booking(models.Model):
+    table = models.ForeignKey('Table', on_delete=models.CASCADE)
+    party = models.ForeignKey('Client', on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    slot = models.DateField()
+    updated_on = models.DateTimeField(auto_now=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+    status = models.IntegerField(choices=STATUS, default=0)
+
+    class Meta:
+        ordering = ['-created_on']
+
+        def __str__(self):
