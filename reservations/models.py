@@ -4,7 +4,7 @@ from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "Submited"), (1, "Accepted"))
 
-HOURS_OPTION = (
+HOUR_OPTION = (
     ("11:00", "11:00"),
     ("11:30", "11:30"),
     ("12:00", "12:00"),
@@ -46,7 +46,7 @@ class Table(models.Model):
 
 class Booking(models.Model):
     table = models.ForeignKey('Table', on_delete=models.CASCADE)
-    party = models.ForeignKey('Client', on_delete=models.CASCADE)
+    party = models.ForeignKey('Customer', on_delete=models.CASCADE)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     slot = models.DateField()
     updated_on = models.DateTimeField(auto_now=True)
@@ -55,5 +55,3 @@ class Booking(models.Model):
 
     class Meta:
         ordering = ['-created_on']
-
-        def __str__(self):
