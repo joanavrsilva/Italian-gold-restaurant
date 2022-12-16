@@ -32,12 +32,25 @@ HOUR_OPTION = (
     ("23:00", "23:00"),
 )
 
-class Customer(models.Model):
-    first_name = models.CharField(max_length=25)
-    last_name = models.CharField(max_length=25)
-    phone = models.CharField(max_length=25)
-    email = models.EmailField()
-    featured_image = CloudinaryField('image', default='placeholder')
+PARTY_OPTION = (
+    (1, "1"),
+    (2, "2"),
+    (3, "3"),
+    (4, "4"),
+    (5, "5"),
+    (6, "6"),
+    (7, "7"),
+    (8, "8"),
+    (9, "9"),
+    (10, "10"),
+)
+
+#class Customer(models.Model):
+#    first_name = models.CharField(max_length=25)
+#    last_name = models.CharField(max_length=25)
+#    phone = models.CharField(max_length=25)
+#    email = models.EmailField()
+#    featured_image = CloudinaryField('image', default='placeholder')
 
 class Table(models.Model):
     seats = models.IntegerField()
@@ -46,7 +59,7 @@ class Table(models.Model):
 
 class Booking(models.Model):
     table = models.ForeignKey('Table', on_delete=models.CASCADE)
-    party = models.ForeignKey('Customer', on_delete=models.CASCADE)
+    party = models.IntegerField(choices=PARTY_OPTION, default=2)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     slot = models.DateField()
     updated_on = models.DateTimeField(auto_now=True)
