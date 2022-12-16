@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
-STATUS = ((0, "Submited"), (1, "Accepted"))
+STATUS = ((0, "Submited"), (1, "Accepted"), (2, "Refused"))
 
 HOUR_OPTION = (
     ("11:00", "11:00"),
