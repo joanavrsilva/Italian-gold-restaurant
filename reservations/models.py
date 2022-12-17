@@ -64,8 +64,8 @@ class Booking(models.Model):
     featured_image = CloudinaryField('image', default='placeholder')
     table = models.ForeignKey('Table', on_delete=models.CASCADE)
     party = models.IntegerField(choices=PARTY_OPTION, default=2)
-    
-    slot = models.DateField()
+    special_requirements = models.CharField(max_length=250, blank=True)
+    day = models.DateField()
     updated_on = models.DateTimeField(auto_now=True)
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
