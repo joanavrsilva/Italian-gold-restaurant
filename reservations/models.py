@@ -50,6 +50,8 @@ class Booking(models.Model):
         User, on_delete=models.CASCADE, related_name="customer_booking"
     )
     featured_image = CloudinaryField('image', default='placeholder')
+    first_name = models.CharField(max_length=25)
+    last_name = models.CharField(max_length=25)
     party = models.IntegerField(choices=PARTY_OPTION, default=2)
     hour = models.CharField(choices=HOUR_OPTION, default="12:00", max_length=10)
     day = models.DateField()
@@ -60,3 +62,6 @@ class Booking(models.Model):
 
     class Meta:
         ordering = ['-created_on']
+
+    def __str__(self):
+        return self.author
