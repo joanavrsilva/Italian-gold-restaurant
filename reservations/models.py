@@ -45,12 +45,12 @@ PARTY_OPTION = (
     (10, "10"),
 )
 
-#class Customer(models.Model):
-#    first_name = models.CharField(max_length=25)
-#    last_name = models.CharField(max_length=25)
-#    phone = models.CharField(max_length=25)
-#    email = models.EmailField()
-#    featured_image = CloudinaryField('image', default='placeholder')
+class Customer(models.Model):
+    first_name = models.CharField(max_length=25)
+    last_name = models.CharField(max_length=25)
+    phone = models.CharField(max_length=25)
+    email = models.EmailField()
+    featured_image = CloudinaryField('image', default='placeholder')
 
 class Table(models.Model):
     seats = models.IntegerField()
@@ -58,9 +58,13 @@ class Table(models.Model):
     max_people = models.IntegerField()
 
 class Booking(models.Model):
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="customer_booking"
+    )
+    featured_image = CloudinaryField('image', default='placeholder')
     table = models.ForeignKey('Table', on_delete=models.CASCADE)
     party = models.IntegerField(choices=PARTY_OPTION, default=2)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    
     slot = models.DateField()
     updated_on = models.DateTimeField(auto_now=True)
     created_on = models.DateTimeField(auto_now_add=True)
