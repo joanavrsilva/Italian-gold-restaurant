@@ -64,4 +64,20 @@ class Booking(models.Model):
         ordering = ['-created_on']
 
     def __str__(self):
-        return self.author
+        return f"{self.first_name}, {self.last_name}"
+
+class Customer(models.Model):
+    first_name = models.CharField(max_length=25)
+    last_name = models.CharField(max_length=25)
+    booking = models.ForeignKey(Booking, on_delete=models.CASCADE,
+                                related_name="customers")
+    email = models.EmailField()
+    phone_number = models.IntegerField()
+    created_on = models.DateTimeField(auto_now_add=True)
+    approved = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ["created_on"]
+
+    def __str__(self):
+        return f"{self.first_name}, {self.last_name}"
