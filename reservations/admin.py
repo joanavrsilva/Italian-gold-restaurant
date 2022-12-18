@@ -11,4 +11,11 @@ class BookingAdmin(SummernoteModelAdmin):
     search_field = ['author', 'day', 'party', 'hour']
 
 @admin.register(Customer)
-class CommentAdmin(admin.ModelAdmin):
+class CustomerAdmin(admin.ModelAdmin):
+    list_display = ('last_name', 'booking', 'created_on', 'approved')
+    list_filter = ('approved', 'created_on')
+    search_fields = ('first_name', 'last_name', 'email', 'body')
+    actions = ['approve_bookings']
+
+    def approve_bookings(self, request, queryset):
+        queryset.update(approved=True)
