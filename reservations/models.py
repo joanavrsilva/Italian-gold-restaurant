@@ -73,7 +73,7 @@ class Customer(models.Model):
     booking = models.ForeignKey(Booking, on_delete=models.CASCADE,
                                 related_name="customers")
     email = models.EmailField()
-    phone_number = models.IntegerField()
+    phone_number = models.CharField(max_length=25)
     created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
 
