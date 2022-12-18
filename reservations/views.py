@@ -7,4 +7,4 @@ class BookingList(generic.ListView):
     model = Booking
     queryset = Booking.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
-    paginate_by = 8
+    paginate_by = 6
