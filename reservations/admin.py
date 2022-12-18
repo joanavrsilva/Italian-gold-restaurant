@@ -14,7 +14,7 @@ class BookingAdmin(SummernoteModelAdmin):
 class CustomerAdmin(admin.ModelAdmin):
     list_display = ('last_name', 'booking', 'created_on', 'approved')
     list_filter = ('approved', 'created_on')
-    search_fields = ('first_name', 'last_name', 'email', 'body')
+    search_fields = ('first_name', 'last_name', 'email', 'booking')
     actions = ['approve_bookings']
 
     def approve_bookings(self, request, queryset):
