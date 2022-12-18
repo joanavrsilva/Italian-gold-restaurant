@@ -7,3 +7,5 @@ class BookingAdmin(SummernoteModelAdmin):
 
     summernote_fields = ('special_requirements')
     list_filter = {'status', 'created_on', 'author', "day"}
+    search_field = {'author', 'day', 'party'}
+    
