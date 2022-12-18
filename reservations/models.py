@@ -47,7 +47,7 @@ PARTY_OPTION = (
 
 class Booking(models.Model):
     author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="customer_booking"
+        User, on_delete=models.CASCADE, related_name="restaurant_booking"
     )
     featured_image = CloudinaryField('image', default='placeholder')
     first_name = models.CharField(max_length=25)
@@ -55,16 +55,17 @@ class Booking(models.Model):
     party = models.IntegerField(choices=PARTY_OPTION, default=2)
     hour = models.CharField(choices=HOUR_OPTION, default="12:00", max_length=10)
     day = models.DateField()
-    special_requirements = models.CharField(max_length=250, blank=True)
+    special_requirements = models.TextField(max_length=250, blank=True)
     updated_on = models.DateTimeField(auto_now=True)
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
+    
 
     class Meta:
-        ordering = ['-created_on']
+        ordering = ['-day']
 
     def __str__(self):
-        return f"{self.first_name}, {self.last_name}"
+        return f"{self.day} - {self.hour} - {self.first_name} {self.last_name}"
 
 class Customer(models.Model):
     first_name = models.CharField(max_length=25)
@@ -80,4 +81,4 @@ class Customer(models.Model):
         ordering = ["created_on"]
 
     def __str__(self):
-        return f"{self.first_name}, {self.last_name}"
+        return f"Thank you! Your booking details {self.booking}"
