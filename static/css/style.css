@@ -41,3 +41,56 @@ body {
     left: -2px;
     background-color: rgb(207,181,59)
 }
+
+.author {
+    color: white;
+    text-transform: uppercase;
+    margin: 4px;
+}
+
+.booking-header {
+    display: inline-block;
+    height: 33vh;
+    margin-top: 10px;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.booking-header-text {
+    position: relative;
+    background-color:black;
+    color: white;
+   
+}
+
+.booking-header-image {
+    overflow: hidden;
+    position: relative;
+    
+}
+
+.booking-header-image:after {
+    content: "";
+    position: absolute;
+    right: 90%;
+    height: 100%;
+    top: 0;
+    background: black;
+    -webkit-transform: skew(15deg);
+    -moz-transform: skew(15deg);
+    transform: skew(15deg);
+    z-index: 100;
+    width: 150%;
+}
+
+.booking-link {
+    color: black;
+    text-decoration: none;
+    
+}
+
+.booking-link:hover,
+.page-link {
+    color: rgb(207,181,59)
+}
