@@ -1,12 +1,25 @@
 {% extends 'base.html' %} {% block content %}
-    {% if "placeholder" in booking.featured_image.url %}
-    {% else %}
-    {% endif %}
 
-    {{ booking.special_requirements | safe }}
-       {% %}
-                
-    {{  | linebreaks }}
-
+<div class="booking-header">
+    <div class="container">
+        <div class="row g-0">
+            <div class="col-md-6 booking-header-text">
+                <!-- Author booking -->
+                <h1 class="booking-author">
+                </h1>
+                <!-- Booking author goes before the | the booking created date goes after -->
+                <p class="booking-last-name"> | </p>
+            </div>
+            <div class="d-none d-md-block col-md-6 booking-header-image">
+                <!-- Image URL src attribute -->
+                {% if "placeholder" in booking.featured_image.url %}
+                <img src="" width="100%">
+                {% else %}
+                <img src="" width="100%">
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock content %}
