@@ -11,14 +11,6 @@
                 <!-- Booking author goes before the | the booking created date goes after -->
                 <p class="booking-subtitle"> | {{ booking.author }} | {{ booking.created_on }} </p>
             </div>
-            <div class="d-none d-md-block col-md-6 booking-header-image">
-                <!-- Image URL src attribute -->
-                {% if "placeholder" in booking.featured_image.url %}
-                <img src="" width="100%">
-                {% else %}
-                <img src="" width="100%">
-                {% endif %}
-            </div>
         </div>
     </div>
 </div>

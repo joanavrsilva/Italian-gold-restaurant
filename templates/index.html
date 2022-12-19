@@ -12,23 +12,16 @@
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body">
-                            <div class="image-container">
-                                {% if "placeholder" in booking.featured_image.url %}
-                                <img class="card-img-top"
-                                    src="">
-                                {% else %}
-                                <img class="card-img-top" src=" {{ booking.featured_image.url }}">
-                                {% endif %}
-                                <div class="image-flash">
-                                    <p class="author">Author: {{ booking.author }}</p>
-                                </div>
+                            <div class="image-flash">
+                                <p class="author">Author: {{ booking.author }}</p>
                             </div>
+                        </div>
                             <a href="{% url 'booking_detail' booking.slug %}" class="booking-link">
                                 <h2 class="card-title">{{ booking.first_name }}</h2>
                                 <p class="card-text">{{ booking.special_requirements }}</p>
                             </a>
-                            <hr />
-                            <p class="card-text text-muted h6">{{ booking.created_on}}</p>
+                                <hr />
+                                <p class="card-text text-muted h6">{{ booking.created_on}}</p>
                         </div>
                     </div>
                 </div>

@@ -46,16 +46,15 @@ PARTY_OPTION = (
 )
 
 class Booking(models.Model):
+    title = models.CharField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="restaurant_booking"
     )
-    title = models.CharField(max_length=200, unique=True)
-    slug = models.SlugField(max_length=200, unique=True, editable=False)
-    featured_image = CloudinaryField('image', default='placeholder')
     first_name = models.CharField(max_length=25)
     last_name = models.CharField(max_length=25)
     party = models.IntegerField(choices=PARTY_OPTION, default=2)
-    hour = models.CharField(choices=HOUR_OPTION, default="12:00", max_length=10)
+    hour = models.CharField(choices=HOUR_OPTION, default='12:00', max_length=10)
     day = models.DateField()
     special_requirements = models.TextField(max_length=250, blank=True)
     updated_on = models.DateTimeField(auto_now=True)
