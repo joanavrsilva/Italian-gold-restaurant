@@ -94,3 +94,27 @@ body {
 .page-link {
     color: rgb(207,181,59)
 }
+
+.btn-signup {
+    color: white;
+    background-color: black;
+}
+
+.btn-signup:hover,
+.btn-signup:active {
+    background-color: rgb(207,181,59);
+    color: white;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+    
+}
+
+.link:hover,
+.link:active {
+    text-decoration: underline;
+    color: rgb(207,181,59);
+    
+}
