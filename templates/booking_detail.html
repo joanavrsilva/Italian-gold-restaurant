@@ -6,18 +6,10 @@
         <div class="row g-0">
             <div class="col-md-6 booking-header-text">
                 <!-- Author booking -->
-                <h1 class="booking-author">
+                <h1 class="booking-title">{{ booking.title }}</h1>
                 </h1>
                 <!-- Booking author goes before the | the booking created date goes after -->
-                <p class="booking-last-name"> | </p>
-            </div>
-            <div class="d-none d-md-block col-md-6 booking-header-image">
-                <!-- Image URL src attribute -->
-                {% if "placeholder" in booking.featured_image.url %}
-                <img src="" width="100%">
-                {% else %}
-                <img src="" width="100%">
-                {% endif %}
+                <p class="booking-subtitle"> | {{ booking.author }} | {{ booking.created_on }} </p>
             </div>
         </div>
     </div>
@@ -29,7 +21,7 @@
                 <!-- The booking content appears inside the block. -->
                 <!-- Use the | safe filter inside the template tags -->
                 <p class="card-text "></p>
-                    {{ booking.special_requirements | safe }}
+                    {{ booking.day.hour.first_name.last_name.party | safe }}
                 <div class="row">
                 </div>
             </div>
@@ -42,24 +34,24 @@
     </div>
     <div class="row">
         <div class="col-md-8 card mb-4  mt-3 ">
-            <h3>Customers:</h3>
+            <h3>Notes:</h3>
             <div class="card-body">
-                <!-- Create a loop inside the tags to iterate with the customers option -->
+                <!-- Create a loop inside the tags to iterate with the notes option -->
                 {% %}
-                <div class="customers" style="padding: 10px;">
+                <div class="notes" style="padding: 10px;">
                     <p class="font-weight-bold">
-                        <!-- Customers name -->
-                        {{ }}
+                        <!-- Notes name -->
+                        {{ note.last_name }}
                         <span class=" text-muted font-weight-normal">
-                            <!-- Customers created date -->
-                            {{ }}
+                            <!-- Notes created date -->
+                            {{ notes.created_on }}
                         </span> wrote:
                     </p>
-                    <!-- Inside of custumers data| -->
-                    {{  | linebreaks }}
+                    <!-- Employee note -->
+                    {{ note.body | linebreaks }}
                 </div>
                 <!-- End of for loop -->
-                {% %}
+                {% enfor %}
             </div>
         </div>
         <div class="col-md-4 card mb-4  mt-3 ">
@@ -74,7 +66,7 @@
                 <h3>Make a reservation:</h3>
                 <p>Posting as: {{ user.username }}</p>
                 <form method="booking" style="margin-top: 1.3em;">
-                    {{ custormer_form | crispy }}
+                    {{ note_form | crispy }}
                     {% csrf_token %}
                     <button type="submit" class="btn btn-signup btn-lg">Submit</button>
                 </form>

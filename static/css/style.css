@@ -30,18 +30,6 @@ body {
     background-color: transparent;
 }
 
-.image-container {
-    position: relative;
-}
-
-.image-flash {
-    position: absolute;
-    bottom: 5%;
-    min-width: 30%;
-    left: -2px;
-    background-color: rgb(207,181,59)
-}
-
 .author {
     color: white;
     text-transform: uppercase;
@@ -64,26 +52,6 @@ body {
    
 }
 
-.booking-header-image {
-    overflow: hidden;
-    position: relative;
-    
-}
-
-.booking-header-image:after {
-    content: "";
-    position: absolute;
-    right: 90%;
-    height: 100%;
-    top: 0;
-    background: black;
-    -webkit-transform: skew(15deg);
-    -moz-transform: skew(15deg);
-    transform: skew(15deg);
-    z-index: 100;
-    width: 150%;
-}
-
 .booking-link {
     color: black;
     text-decoration: none;
@@ -93,6 +61,16 @@ body {
 .booking-link:hover,
 .page-link {
     color: rgb(207,181,59)
+}
+
+.booking-title {
+    margin-top: 20%;
+    margin-left: 5%;
+}
+
+.post-subtitle {
+    margin-left: 5%;
+    color: red;
 }
 
 .btn-signup {
@@ -114,7 +92,6 @@ body {
 
 .link:hover,
 .link:active {
-    text-decoration: underline;
     color: rgb(207,181,59);
     
 }
