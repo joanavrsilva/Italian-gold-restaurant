@@ -49,17 +49,17 @@
                 <div class="customers" style="padding: 10px;">
                     <p class="font-weight-bold">
                         <!-- Customers name -->
-                        {{ }}
+                        {{ customer.last_name }}
                         <span class=" text-muted font-weight-normal">
                             <!-- Customers created date -->
-                            {{ }}
+                            {{ customers.created_on }}
                         </span> wrote:
                     </p>
                     <!-- Inside of custumers data| -->
-                    {{  | linebreaks }}
+                    {{ comment.body | linebreaks }}
                 </div>
                 <!-- End of for loop -->
-                {% %}
+                {% enfor %}
             </div>
         </div>
         <div class="col-md-4 card mb-4  mt-3 ">
