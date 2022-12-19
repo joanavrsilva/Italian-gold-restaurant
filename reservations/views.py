@@ -11,9 +11,9 @@ class BookingList(generic.ListView):
 
 class BookingDetail(View):
 
-    def get(self, request, *args, **kwargs):
+    def get(self, request, slug, *args, **kwargs):
         queryset = Booking.objects.filter(status=1)
-        booking = get_object_or_404(queryset)
+        booking = get_object_or_404(queryset, slug=slug)
         customers = booking.customers.filter(approved=True).order_by("-created_on")
 
         return render(
@@ -29,7 +29,7 @@ class BookingDetail(View):
         queryset = Booking.objects.filter(status=1)
         booking = get_object_or_404(queryset, slug=slug)
         customers = booking.customers.filter(approved=True).order_by("-created_on")
-
+        
         customer_form = CustomerForm(data=request.POST)
         if customer_form.is_valid():
             customer_form.instance.email = request.user.email

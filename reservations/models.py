@@ -49,6 +49,7 @@ class Booking(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="restaurant_booking"
     )
+    slug = models.SlugField(max_length=200, unique=True, editable=False)
     featured_image = CloudinaryField('image', default='placeholder')
     first_name = models.CharField(max_length=25)
     last_name = models.CharField(max_length=25)
@@ -59,7 +60,6 @@ class Booking(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    
 
     class Meta:
         ordering = ['-day']

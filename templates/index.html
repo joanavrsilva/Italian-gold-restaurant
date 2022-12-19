@@ -23,7 +23,7 @@
                                     <p class="author">Author: {{ booking.author }}</p>
                                 </div>
                             </div>
-                            <a href="{% url 'booking_detail' %}" class="booking-link">
+                            <a href="{% url 'booking_detail' booking.slug %}" class="booking-link">
                                 <h2 class="card-title">{{ booking.first_name }}</h2>
                                 <p class="card-text">{{ booking.special_requirements }}</p>
                             </a>
