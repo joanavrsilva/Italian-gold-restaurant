@@ -4,10 +4,9 @@ from django_summernote.admin import SummernoteModelAdmin
 
 @admin.register(Booking)
 class BookingAdmin(SummernoteModelAdmin):
-
     summernote_fields = ('special_requirements')
     prepopulated_fields = {'slug': ('title',)}
-    list_display = ('first_name', 'slug', 'last_name', 'day', 'hour', 'created_on')
+    list_display = ('slug', 'last_name', 'day', 'hour', 'created_on')
     list_filter = ('status', 'created_on', 'author', 'day')
     search_field = ['author', 'day', 'party', 'hour']
 
