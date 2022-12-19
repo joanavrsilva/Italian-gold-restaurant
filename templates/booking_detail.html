@@ -21,5 +21,50 @@
         </div>
     </div>
 </div>
-
+<div class="container">
+    <div class="row">
+        <div class="col card mb-4  mt-3 left  top">
+            <div class="card-body">
+                <!-- The booking content appears inside the block. -->
+                <!-- Use the | safe filter inside the template tags -->
+                <p class="card-text "></p>
+                    {{ booking.special_requirements | safe }}
+                <div class="row">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 card mb-4  mt-3 ">
+            <h3>Customers:</h3>
+            <div class="card-body">
+                <!-- Create a loop inside the tags to iterate with the customers option -->
+                {% %}
+                <div class="customers" style="padding: 10px;">
+                    <p class="font-weight-bold">
+                        <!-- Customers name -->
+                        {{ }}
+                        <span class=" text-muted font-weight-normal">
+                            <!-- Customers created date -->
+                            {{ }}
+                        </span> wrote:
+                    </p>
+                    <!-- Inside of costumers data| -->
+                    {{  | linebreaks }}
+                </div>
+                <!-- End of for loop -->
+                {% %}
+            </div>
+        </div>
+        <div class="col-md-4 card mb-4  mt-3 ">
+            <div class="card-body">
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock content %}
