@@ -6,10 +6,10 @@
         <div class="row g-0">
             <div class="col-md-6 booking-header-text">
                 <!-- Author booking -->
-                <h1 class="booking-author">
+                <h1 class="booking-title">{{ booking.title }}</h1>
                 </h1>
                 <!-- Booking author goes before the | the booking created date goes after -->
-                <p class="booking-last-name"> | </p>
+                <p class="booking-subtitle"> | {{ booking.author }} | {{ booking.created_on }} </p>
             </div>
             <div class="d-none d-md-block col-md-6 booking-header-image">
                 <!-- Image URL src attribute -->

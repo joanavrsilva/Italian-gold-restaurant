@@ -49,6 +49,7 @@ class Booking(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="restaurant_booking"
     )
+    title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True, editable=False)
     featured_image = CloudinaryField('image', default='placeholder')
     first_name = models.CharField(max_length=25)
@@ -65,7 +66,7 @@ class Booking(models.Model):
         ordering = ['-day']
 
     def __str__(self):
-        return f"{self.day} - {self.hour} - {self.first_name} {self.last_name}"
+        return f"{self.day} - {self.hour} - {self.title} - {self.last_name}"
 
 class Customer(models.Model):
     first_name = models.CharField(max_length=25)
