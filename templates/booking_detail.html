@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block content %}
+    {% if "placeholder" in booking.featured_image.url %}
+    {% else %}
+    {% endif %}
+
+    {{ booking.special_requirements | safe }}
+       {% %}
+                
+    {{  | linebreaks }}
+
+
+{% endblock content %}
