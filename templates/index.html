@@ -17,8 +17,8 @@
                             </div>
                         </div>
                             <a href="{% url 'booking_detail' booking.slug %}" class="booking-link">
-                                <h2 class="card-title">{{ booking.first_name }}</h2>
-                                <p class="card-text">{{ booking.special_requirements }}</p>
+                                <h2 class="card-title">{{ booking.title }}</h2>
+                                <p class="card-text">{{ booking.first_name.last_name.day.hour }}</p>
                             </a>
                                 <hr />
                                 <p class="card-text text-muted h6">{{ booking.created_on}}</p>

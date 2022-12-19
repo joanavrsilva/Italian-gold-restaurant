@@ -1,8 +1,8 @@
-from .models import Customer
+from .models import Note
 from django import forms
 
 
-class CustomerForm(forms.ModelForm):
+class NoteForm(forms.ModelForm):
     class Meta:
-        model = Customer
+        model = Note
         fields = ('body',)

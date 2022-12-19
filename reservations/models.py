@@ -67,13 +67,11 @@ class Booking(models.Model):
     def __str__(self):
         return f"{self.day} - {self.hour} - {self.title} - {self.last_name}"
 
-class Customer(models.Model):
-    first_name = models.CharField(max_length=25)
-    last_name = models.CharField(max_length=25)
+class Note(models.Model):
+    employee_name = models.CharField(max_length=25)
     booking = models.ForeignKey(Booking, on_delete=models.CASCADE,
-                                related_name="customers")
-    email = models.EmailField()
-    phone_number = models.CharField(max_length=25)
+                                related_name="notes")
+    body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
 
@@ -81,4 +79,4 @@ class Customer(models.Model):
         ordering = ["created_on"]
 
     def __str__(self):
-        return f"Thank you! Your booking details {self.booking}"
+        return f"Note {self.body} made by {self.employee_name}"

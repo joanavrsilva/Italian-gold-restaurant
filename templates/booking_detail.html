@@ -21,7 +21,7 @@
                 <!-- The booking content appears inside the block. -->
                 <!-- Use the | safe filter inside the template tags -->
                 <p class="card-text "></p>
-                    {{ booking.special_requirements | safe }}
+                    {{ booking.day.hour.first_name.last_name.party | safe }}
                 <div class="row">
                 </div>
             </div>
@@ -34,21 +34,21 @@
     </div>
     <div class="row">
         <div class="col-md-8 card mb-4  mt-3 ">
-            <h3>Customers:</h3>
+            <h3>Notes:</h3>
             <div class="card-body">
-                <!-- Create a loop inside the tags to iterate with the customers option -->
+                <!-- Create a loop inside the tags to iterate with the notes option -->
                 {% %}
-                <div class="customers" style="padding: 10px;">
+                <div class="notes" style="padding: 10px;">
                     <p class="font-weight-bold">
-                        <!-- Customers name -->
-                        {{ customer.last_name }}
+                        <!-- Notes name -->
+                        {{ note.last_name }}
                         <span class=" text-muted font-weight-normal">
-                            <!-- Customers created date -->
-                            {{ customers.created_on }}
+                            <!-- Notes created date -->
+                            {{ notes.created_on }}
                         </span> wrote:
                     </p>
-                    <!-- Inside of custumers data| -->
-                    {{ comment.body | linebreaks }}
+                    <!-- Employee note -->
+                    {{ note.body | linebreaks }}
                 </div>
                 <!-- End of for loop -->
                 {% enfor %}
@@ -66,7 +66,7 @@
                 <h3>Make a reservation:</h3>
                 <p>Posting as: {{ user.username }}</p>
                 <form method="booking" style="margin-top: 1.3em;">
-                    {{ custormer_form | crispy }}
+                    {{ note_form | crispy }}
                     {% csrf_token %}
                     <button type="submit" class="btn btn-signup btn-lg">Submit</button>
                 </form>
