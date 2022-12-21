@@ -7,7 +7,6 @@
             <div class="col-md-6 booking-header-text">
                 <!-- Author booking -->
                 <h1 class="booking-title">{{ booking.title }}</h1>
-                </h1>
                 <!-- Booking author goes before the | the booking created date goes after -->
                 <p class="booking-subtitle"> | {{ booking.author }} | {{ booking.created_on }} </p>
             </div>
@@ -20,9 +19,16 @@
             <div class="card-body">
                 <!-- The booking content appears inside the block. -->
                 <!-- Use the | safe filter inside the template tags -->
-                <p class="card-text "></p>
-                    {{ booking.day.hour.first_name.last_name.party | safe }}
+                <p class="card-text ">
+                    {{ booking.day | safe }}
+                </p>
                 <div class="row">
+                    <div class="col-1">
+                        {% with notes.count as total_notes %}
+                        <strong class="text-secondary"><i class="far fa-comments"></i>
+                            <!-- Our total_comments variable goes before the closing strong tag -->
+                            {{ total_notes }}</strong>
+                        {% endwith %}
                 </div>
             </div>
         </div>
@@ -37,11 +43,11 @@
             <h3>Notes:</h3>
             <div class="card-body">
                 <!-- Create a loop inside the tags to iterate with the notes option -->
-                {% %}
+                {% for note in notes%}
                 <div class="notes" style="padding: 10px;">
                     <p class="font-weight-bold">
                         <!-- Notes name -->
-                        {{ note.last_name }}
+                        {{ note.employee_name }}
                         <span class=" text-muted font-weight-normal">
                             <!-- Notes created date -->
                             {{ notes.created_on }}
@@ -58,13 +64,13 @@
             <div class="card-body">
                 {% if commented %}
                 <div class="alert alert-success" role="alert">
-                    Thank you! Your booking is awaiting approval
+                    Thank you! Your note is awaiting approval
                 </div>
                 {% else %}
                 {% if user.is_authenticated %}
 
-                <h3>Make a reservation:</h3>
-                <p>Posting as: {{ user.username }}</p>
+                <h3>Reservations:</h3>
+                <p>Note by: {{ user.username }}</p>
                 <form method="booking" style="margin-top: 1.3em;">
                     {{ note_form | crispy }}
                     {% csrf_token %}
